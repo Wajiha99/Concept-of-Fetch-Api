@@ -36,6 +36,7 @@ const getFacts = async () => {
     console.log(response);//JSON format 
     console.log(response.status);
     let data = await response.json();//convert json format into js object.
+    console.log(data);
 }
 * What if i want the text(from dog facts) to be printed on the browser screen 
 let btn = document.querySelector("#btn");
