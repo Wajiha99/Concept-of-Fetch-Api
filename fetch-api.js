@@ -3,8 +3,8 @@ Fetch Api :
 ->It uses Request and Response objects.
 ->The fetch() method is used to fetch a resource(data).
 SYNTAX FOR FETCH : 
-let variable-name(with-your-own) = fetch(url,[option[);
-Note : fetch() will always return promise as "fulfilled" or "rejected".
+let variable-name(with-your-own) = fetch(url,[options]);
+Note : fetch() will always return a promise as "fulfilled" or "rejected".
 1)Code for fetching from the api(without async) :
 const URL = "https://dogapi.dog/api/v2/breeds";
 let promise = fetch(URL);
@@ -24,17 +24,18 @@ fetch() --- if we are using fetch() without using options then fetch() creates a
   So we have some formats 
 Understading Terms[How we will "get" our request same as browser] :
 AJAX[Asynchronous JS and XML] --> In oldest times,Api return data in the XML files but now data format comes in the form of JSON.
-JSON[Javascript Object Notation] : JSON is [Javascript Object Notation.
+JSON[Javascript Object Notation] : JSON is Javascript Object Notation.
 Note : 
 1)we are getting response from the API in the form of JSON format.
 2)We need to convert JSON file into JS object for that we have one special function to convert 
-json() method(asynchronous method): returns a second promise that resolves with the result of parsing the response body text as JSON(Input is JSON, output is JS onject).
+json() method(asynchronous method): returns a second promise that resolves with the result of parsing the response body text as JSON(Input is JSON, output is JS object).
 Code for how to convert json() files into js object :
 const URL = "https://dogapi.dog/api/v2/breeds";
 const getFacts = async () => {
     let response = await fetch(URL);
     console.log(response);//JSON format 
     console.log(response.status);
+    let data = await response.json();//convert json format into js object.
 }
 * What if i want the text(from dog facts) to be printed on the browser screen 
 let btn = document.querySelector("#btn");
